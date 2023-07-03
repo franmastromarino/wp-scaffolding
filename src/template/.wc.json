@@ -1,0 +1,25 @@
+{
+	"name": "{{plugin-name}}-for-woocommerce",
+	"header": "Woo: test",
+	"replacements": {
+		"/(\\* Plugin Name):\\s+/": "$1: ",
+		"/(\\* Plugin URI):\\s+/": "$1: ",
+		"/(\\* Description):\\s+/": "$1: ",
+		"/(\\* Version):\\s+/": "$1: ",
+		"/(\\* Text Domain):\\s+/": "$1: ",
+		"/(\\* Author):\\s+/": "$1: ",
+		"/(\\* Author URI):\\s+/": "$1: ",
+		"/(\\* License):\\s+/": "$1: ",
+		"/(\\* Domain Path):\\s+/": "$1: ",
+		"/(\\* Request at least):\\s+/": "$1: ",
+		"/(\\* Tested up to):\\s+/": "$1: ",
+		"/(\\* Requires PHP):\\s+/": "$1: ",
+		"/(\\* WC requires at least):\\s+/": "$1: ",
+		"/(\\* WC tested up to):\\s+/": "$1: ",
+		"/\\* WC tested up to:\\s*\\d+\\.\\d+/": "$&\n * Woo: test",
+		"https://quadlayers.com": "https://woocommerce.com/vendor/quadlayers",
+		"https://quadlayers.com/portfolio/{{plugin-name}}": "https://woocommerce.com/product/{{plugin-name}}",
+		"require_once __DIR__ . '/vendor_packages/wp-notice-plugin-required.php';": "",
+		"require_once __DIR__ . '/vendor_packages/wp-license-client.php';": ""
+	}
+}

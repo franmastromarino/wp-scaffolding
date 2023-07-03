@@ -1,0 +1,35 @@
+{
+  "name": "wp-scaffolding",
+  "version": "1.0.0",
+  "description": "Generates PHP, JS and CSS code for creating access WordPress plugin.",
+  "author": "QuadLayers",
+  "license": "GPL-3.0",
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "block",
+    "scaffold"
+  ],
+  "homepage": "https://github.com/franmastromarino/wp-scaffolding/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/franmastromarino/wp-scaffolding.git"
+  },
+  "bugs": {
+    "url": "https://github.com/franmastromarino/wp-scaffolding/issues"
+  },
+  "main": "src/index.js",
+  "bin": {
+    "create-plugin": "./index.js",
+    "update-plugin": "./index.js"
+  },
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "inquirer": "^8.1.5",
+    "glob": "^7.1.7",
+    "commander": "^8.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,7 @@
+/node_modules
+/assets
+/tests
+/dist
+**/test/**
+/bin
+playwright.config.js
