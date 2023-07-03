@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { Command } = require("commander");
 const fs = require("fs-extra");
 const inquirer = require("inquirer");
@@ -8,6 +9,7 @@ const { replacePlaceholders } = require("../helpers");
 const command = new Command("create-plugin")
   .description("Creates a new plugin")
   .action(async () => {
+	//TODO: validate command line arguments
     const answers = await inquirer.prompt([
       { name: "name", message: "Plugin name?" },
       { name: "title", message: "Plugin title?" },
@@ -21,6 +23,7 @@ const command = new Command("create-plugin")
     const templateDir = path.join(__dirname, "../template");
     const targetDir = process.cwd();
 
+	//TODO: include a progress bar
     // Copy the template directory to the target directory
     await fs.copy(templateDir, targetDir, {
       filter: (src) => {

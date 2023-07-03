@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const program = require("commander");
 const createPluginCommand = require("./commands/create-plugin");
 const updatePluginCommand = require("./commands/update-plugin");

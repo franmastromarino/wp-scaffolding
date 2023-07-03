@@ -3,7 +3,7 @@
 	"description": "{{plugin-title}}",
 	"main": "index.js",
 	"scripts": {
-		"tools:setup": "cd .tools && composer run-script setup",
+		"tools:setup": "cd .tools && pnpm run setup",
 		"tools:phpcbf": "node .tools/bin/phpcbf.js",
 		"tools:phpcs": "node .tools/bin/phpcs.js",
 		"tools:makepot": "node .tools/bin/makepot.js",
@@ -37,8 +37,7 @@
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"lint:md:docs": "wp-scripts lint-md-docs",
-		"lint:pkg-json": "wp-scripts lint-pkg-json",
-		"wp-scaffolding": "node ../src"
+		"lint:pkg-json": "wp-scripts lint-pkg-json"
 	},
 	"lint-staged": {
 		"*.{js,json,ts,tsx,yml,yaml}": [
@@ -93,6 +92,7 @@
 		"node-sass-glob-importer": "5.3.2",
 		"only-allow": "1.1.1",
 		"sass-loader": "^13.3.2",
-		"webpack-remove-empty-scripts": "0.8.4"
+		"webpack-remove-empty-scripts": "0.8.4",
+		"wp-scaffolding": "*"
 	}
 }

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { Command } = require("commander");
 const fs = require("fs-extra");
 const path = require("path");
@@ -16,6 +17,7 @@ const command = new Command("update-plugin")
     const name = packageJson.name;
     const title = packageJson.title;
 
+	//TODO: update scripts and lint-staged in package.json
     const exampleFiles = [
       "package.json",
       "composer.json",

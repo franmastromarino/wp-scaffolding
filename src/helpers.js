@@ -1,5 +1,5 @@
+#!/usr/bin/env node
 const fs = require("fs-extra");
-
 // Helper function to replace placeholders in a file
 async function replacePlaceholders(filePath, replacements) {
   let content = await fs.readFile(filePath, "utf8");
