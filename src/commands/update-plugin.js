@@ -3,7 +3,7 @@ const { Command } = require("commander");
 const fs = require("fs-extra");
 const path = require("path");
 const glob = require("glob");
-const { replacePlaceholders } = require("../helpers");
+const { replacePlaceholders, processPackageJson } = require("../helpers");
 
 const command = new Command("update-plugin")
   .description("Updates an existing plugin")
@@ -12,13 +12,16 @@ const command = new Command("update-plugin")
     const targetDir = process.cwd();
 
     // Read the files array from package.json
-    const packageJson = require(path.join(targetDir, "package.json"));
+    const packageJson = await processPackageJson(targetDir, templateDir);
     const excludedFiles = packageJson.files || [];
     const name = packageJson.name;
     const title = packageJson.title;
 
 	//TODO: update scripts and lint-staged in package.json
     const exampleFiles = [
+      '.git',
+	  'readme.txt',
+	  'node_modules',
       "package.json",
       "composer.json",
       ".wc.json",
