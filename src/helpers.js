@@ -29,8 +29,8 @@ async function processPackageJson(targetDir, templateDir) {
 	const templatePackageJson = JSON.parse(templatePackageJsonString);
 
 	// Merge the scripts and lint-staged fields
-	packageJson.scripts = { ...templatePackageJson.scripts, ...packageJson.scripts };
-	packageJson['lint-staged'] = { ...templatePackageJson['lint-staged'], ...packageJson['lint-staged'] };
+	packageJson.scripts = templatePackageJson.scripts;
+	packageJson['lint-staged'] = templatePackageJson['lint-staged'];
 
 	// Write the updated package.json back to the project with the original indentation
 	await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, detectedIndent) + '\n');

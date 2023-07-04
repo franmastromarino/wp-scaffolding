@@ -10,30 +10,33 @@ const command = new Command("update-plugin")
   .action(async () => {
     const templateDir = path.join(__dirname, "../template");
     const targetDir = process.cwd();
+	const preserveFiles = [
+		'.git',
+		'.github',
+		'.distignore',
+		'readme.txt',
+		'node_modules',
+		"package.json",
+		"composer.json",
+		".wc.json",
+		"README.md",
+		"plugin-init.php",
+		"packages",
+		"tests",
+		"webpack.config.js",
+	  ];
 
     // Read the files array from package.json
     const packageJson = await processPackageJson(targetDir, templateDir);
-    const excludedFiles = packageJson.files || [];
+    const zipFiles = packageJson?.scaffolding?.zip || [];
+	const gitFiles = packageJson?.scaffolding?.git || [];
+
     const name = packageJson.name;
     const title = packageJson.title;
 
-	//TODO: update scripts and lint-staged in package.json
-    const exampleFiles = [
-      '.git',
-	  'readme.txt',
-	  'node_modules',
-      "package.json",
-      "composer.json",
-      ".wc.json",
-      "README.md",
-      "plugin-init.php",
-      "packages",
-      "tests",
-      "webpack.config.js",
-    ];
-
     // Merge the example files with the excluded files
-    excludedFiles.push(...exampleFiles);
+    preserveFiles.push(...zipFiles);
+    preserveFiles.push(...gitFiles);
 
     // Update the template files
     const templateFiles = glob.sync("**", {
@@ -42,8 +45,8 @@ const command = new Command("update-plugin")
       dot: true,
     });
     for (const file of templateFiles) {
-      // Skip the file if it's in the excludedFiles array or its directory is in the excludedFiles array
-      if (excludedFiles.some((excluded) => file.startsWith(excluded))) {
+      // Skip the file if it's in the preserveFiles array or its directory is in the preserveFiles array
+      if (preserveFiles.some((excluded) => file.startsWith(excluded))) {
         continue;
       }
 
@@ -62,7 +65,7 @@ const command = new Command("update-plugin")
       });
     }
 
-    // Delete the files that are not in the template or the excludedFiles array
+    // Delete the files that are not in the template or the preserveFiles array
     const targetFiles = glob.sync("**", {
       cwd: targetDir,
       nodir: true,
@@ -71,7 +74,7 @@ const command = new Command("update-plugin")
     for (const file of targetFiles) {
       if (
         !templateFiles.includes(file) &&
-        !excludedFiles.some((excluded) => file.startsWith(excluded))
+        !preserveFiles.some((excluded) => file.startsWith(excluded))
       ) {
         await fs.remove(path.join(targetDir, file));
       }

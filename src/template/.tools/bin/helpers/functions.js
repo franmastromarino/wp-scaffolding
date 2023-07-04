@@ -12,7 +12,7 @@ const baseDir = process.cwd();
 const packageJson = require( path.join( baseDir, 'package.json' ) );
 const pluginName = packageJson.name;
 const pluginFolder = './.plugin/' + pluginName;
-const pluginFiles = packageJson.files.filter( ( file ) =>
+const pluginFiles = packageJson.scaffolding?.zip?.filter( ( file ) =>
 	fs.existsSync( path.join( baseDir, file ) )
 );
 
