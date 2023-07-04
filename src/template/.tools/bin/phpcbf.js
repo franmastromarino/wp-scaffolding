@@ -16,15 +16,19 @@ const includeFiles = pluginFiles.filter(
 );
 
 // Construct the command
-const command = `php .tools/vendor/bin/phpcbf ${ includeFiles.join( ' ' ) }`;
+const command = `php .tools/vendor/bin/phpcbf --extensions=php ${ includeFiles.join( ' ' ) }`;
 
 try {
 	// Run the command
 	execSync( command, { stdio: 'inherit' } );
-	console.log( `.php files has been formated` );
+	console.log( `phpcs ${ reportType } report has been generated` );
 } catch ( error ) {
-	console.error(
-		'An error occurred while formatting the .php files:',
-		error
-	);
+	if ( error.status === 1 ) {
+		console.log( 'PHP CodeSniffer found coding standard violations.' );
+	} else {
+		console.error(
+			'An error occurred while generating the phpcs ${reportType} report.',
+			error.status
+		);
+	}
 }

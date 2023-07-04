@@ -4,7 +4,7 @@
 /.babelrc
 /.gitignore
 /.npmignore
-/.eslintrc.json
+/.eslintrc
 /.prettierrc.js
 /.prettierignore
 /.eslintignore
