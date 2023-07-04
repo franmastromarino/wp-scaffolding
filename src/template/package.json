@@ -34,6 +34,7 @@
 		"zip": "pnpm run build && node .tools/bin/plugin.js && node .tools/bin/wc.js && node .tools/bin/zip.js",
 		"format:php": "pnpm run tools:phpcbf",
 		"format:js": "wp-scripts format ./packages",
+		"format": "pnpm run format:php && pnpm run format:js",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"lint:md:docs": "wp-scripts lint-md-docs",
