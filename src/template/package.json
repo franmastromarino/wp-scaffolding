@@ -63,20 +63,28 @@
 	},
 	"author": "QuadLayers",
 	"license": "ISC",
-	"files": [
-		"jetpack_vendor",
-		"lib",
-		"vendor",
-		"vendor_packages",
-		"build",
-		"languages",
-		"compatibility",
-		"templates",
-		"assets",
-		"wpml-config.xml",
-		"{{plugin-name}}.php",
-		"uninstall.php"
-	],
+	"scaffolding": {
+		"zip": [
+			"jetpack_vendor",
+			"lib",
+			"vendor",
+			"vendor_packages",
+			"build",
+			"languages",
+			"compatibility",
+			"templates",
+			"assets",
+			"wpml-config.xml",
+			"{{plugin-name}}.php",
+			"uninstall.php",
+			"readme.txt"
+		],
+		"git": [
+			".design",
+			".github",
+			".docs"
+		]
+	},
 	"devDependencies": {
 		"@babel/core": "^7.22.5",
 		"@playwright/test": "1.31.2",
