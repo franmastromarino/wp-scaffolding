@@ -29,10 +29,16 @@ const command = new Command("create-plugin")
       filter: (src) => {
         // If the file is plugin-init.php, rename it to the plugin name
         if (path.basename(src) === "plugin-init.php") {
-          const dest = path.join(targetDir, `${name}.php`);
-          fs.copySync(src, dest);
-          return false;
-        }
+			const dest = path.join(targetDir, `${name}.php`);
+			fs.copySync(src, dest);
+			return false;
+		  }
+		  // If the file is .gitignore.template, rename it to .gitignore
+		  if (path.basename(src) === ".gitignore.template") {
+			const dest = path.join(targetDir, '.gitignore');
+			fs.copySync(src, dest);
+			return false;
+		  }
         return true;
       },
     });

@@ -28,8 +28,14 @@ const command = new Command("update-plugin")
 
     // Read the files array from package.json
     const packageJson = await processPackageJson(targetDir, templateDir);
-    const zipFiles = packageJson?.scaffolding?.zip || [];
-	const gitFiles = packageJson?.scaffolding?.git || [];
+
+	if(!packageJson?.scaffolding) {
+		console.log("No scaffolding found in package.json");
+		return;
+	}
+
+    const zipFiles = packageJson.scaffolding?.zip || [];
+	const gitFiles = packageJson.scaffolding?.git || [];
 
     const name = packageJson.name;
     const title = packageJson.title;
@@ -46,12 +52,17 @@ const command = new Command("update-plugin")
     });
     for (const file of templateFiles) {
       // Skip the file if it's in the preserveFiles array or its directory is in the preserveFiles array
-      if (preserveFiles.some((excluded) => file.startsWith(excluded))) {
-        continue;
-      }
+      if (preserveFiles.some((excluded) => file === excluded || file.startsWith(excluded + "/"))) {
+		continue;
+		}
 
       const srcPath = path.join(templateDir, file);
-      const destPath = path.join(targetDir, file);
+      let destPath = path.join(targetDir, file);
+
+	  // If the file is .gitignore_template, rename it to .gitignore
+		if (file === '.gitignore.template') {
+			destPath = path.join(targetDir, '.gitignore');
+		}
 
       // Overwrite the file in the target directory with the file from the template directory
       await fs.copy(srcPath, destPath);
