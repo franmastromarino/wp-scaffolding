@@ -38,7 +38,8 @@
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"lint:md:docs": "wp-scripts lint-md-docs",
-		"lint:pkg-json": "wp-scripts lint-pkg-json"
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"report:php": "pnpm run tools:phpcs"
 	},
 	"lint-staged": {
 		"*.{js,json,ts,tsx,yml,yaml}": [
