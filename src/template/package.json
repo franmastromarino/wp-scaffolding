@@ -16,7 +16,7 @@
 		"clean": "pnpm run clean:js && pnpm run clean:php",
 		"setup:js": "pnpm run clean:js && pnpm install --force && pnpm husky install && pnpm playwright install",
 		"setup:php": "pnpm run clean:php && composer install",
-		"setup": "pnpm run setup:js && pnpm run setup:php && pnpm run tools:setup",
+		"setup": "pnpm run tools:setup && pnpm run setup:js && pnpm run setup:php",
 		"update:js": "pnpm update",
 		"update:php": "composer update",
 		"update": "pnpm run update:js && pnpm run update:php",
