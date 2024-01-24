@@ -3,6 +3,7 @@
 	"description": "{{plugin-title}}",
 	"main": "index.js",
 	"scripts": {
+		"tools:clean": "cd .tools && pnpm run clean",
 		"tools:setup": "cd .tools && pnpm run setup",
 		"tools:phpcbf": "node .tools/bin/phpcbf.js",
 		"tools:phpcs": "node .tools/bin/phpcs.js",
@@ -39,7 +40,8 @@
 		"lint:js": "wp-scripts lint-js",
 		"lint:md:docs": "wp-scripts lint-md-docs",
 		"lint:pkg-json": "wp-scripts lint-pkg-json",
-		"report:php": "pnpm run tools:phpcs"
+		"report:php": "pnpm run tools:phpcs",
+		"report": "pnpm run report:php"
 	},
 	"lint-staged": {
 		"*.{js,json,ts,tsx,yml,yaml}": [
