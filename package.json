@@ -1,6 +1,6 @@
 {
   "name": "wp-scaffolding",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Generates PHP, JS and CSS code for creating access WordPress plugin.",
   "author": "QuadLayers",
   "license": "GPL-3.0",

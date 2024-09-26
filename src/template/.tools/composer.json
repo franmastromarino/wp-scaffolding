@@ -11,18 +11,18 @@
 	"minimum-stability": "stable",
 	"config": {
 		"platform": {
-			"php": "7.3.0"
+			"php": "7.4.0"
 		},
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
 	},
 	"require": {
-		"php": ">=7.1.0"
+		"php": ">=7.4.0"
 	},
 	"require-dev": {
 		"woocommerce/woocommerce-sniffs": "^1.0.0",
-		"phpunit/phpunit": "^9.5",
+		"phpunit/phpunit": "^9.6",
 		"wp-cli/wp-cli": "*",
 		"wp-cli/i18n-command": "*"
 	},
