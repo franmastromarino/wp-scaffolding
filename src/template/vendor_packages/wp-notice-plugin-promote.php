@@ -14,7 +14,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 	 */
 	define( 'QLXXX_PROMOTE_PREMIUM_SELL_SLUG', '{{plugin-name}}-pro' );
 	define( 'QLXXX_PROMOTE_PREMIUM_SELL_NAME', 'Perfect WooCommerce Brands PRO' );
-	define( 'QLXXX_PROMOTE_PREMIUM_INSTALL_URL', 'https://quadlayers.com/product/{{plugin-name}}/?utm_source=qlxxx_admin' );
+	define( 'QLXXX_PROMOTE_PREMIUM_INSTALL_URL', 'https://quadlayers.com/products/{{plugin-name}}/?utm_source=qlxxx_admin' );
 	define( 'QLXXX_PROMOTE_PREMIUM_SELL_URL', QLXXX_PREMIUM_SELL_URL );
 	/**
 	 * Notice cross sell 1
@@ -36,7 +36,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 		array(
 			array(
 				'type'               => 'ranking',
-				'notice_delay'       => MONTH_IN_SECONDS,
+				'notice_delay'       => 0,
 				'notice_logo'        => QLXXX_PROMOTE_LOGO_SRC,
 				'notice_title'       => sprintf(
 					esc_html__(
@@ -64,7 +64,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 					'Purchase Now',
 					'{{plugin-name}}'
 				),
-				'notice_delay'       => MONTH_IN_SECONDS,
+				'notice_delay'       => WEEK_IN_SECONDS,
 				'notice_logo'        => QLXXX_PROMOTE_LOGO_SRC,
 				'notice_title'       => esc_html__(
 					'Hello! We have a special gift!',
